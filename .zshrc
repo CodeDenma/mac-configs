@@ -106,8 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshrc="code ~/.zshrc"
-alias nvimrc="nvim ~/.config/nvim/init.vim"
+
+
+
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
 alias py="python3"
 
 
@@ -118,3 +121,8 @@ alias py="python3"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi

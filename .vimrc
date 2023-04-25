@@ -9,6 +9,7 @@ set nohlsearch
 set incsearch
 set ruler
 
+set timeoutlen=0
 
 set bg=dark
 

@@ -5,19 +5,27 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+set ruler
+set list
 set nohlsearch
 set incsearch
-set ruler
-
-set timeoutlen=0
-
 set bg=dark
+
+" set clipboard=unnamedplus
+" set history=1000
+" set mouse=
+
+set showcmd
+set ai
+set lbr
+set timeoutlen=0
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' 
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'easymotion/vim-easymotion'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 
@@ -32,16 +40,18 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 
 
 let mapleader = " "
-nnoremap <leader>pv :Vex<CR>
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <C-p> :GFiles<cr>
-nnoremap <leader>pf :Files<CR>
+
+nnoremap <leader><CR> :so ~/.vimrc<CR>
 nnoremap <C-k> :cnext<CR>
 nnoremap <C-j> :cprev<CR>
 
-nnoremap <C-b> :NERDTreeToggle<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>e :Ex<CR>
+nnoremap <C-p> :GFiles<cr>
+nnoremap <leader>pf :Files<CR>
+
+nnoremap <C-b> :NERDTreeToggle<CR>
 
 " let g:neoformat_enabled_javascript = ['prettier']
 " let g:neoformat_enabled_typescript = ['prettier']
@@ -51,5 +61,3 @@ vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
